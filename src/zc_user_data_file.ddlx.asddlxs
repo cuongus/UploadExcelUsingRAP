@@ -1,0 +1,129 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'dataFile', 
+    typeNamePlural: 'dataFiles'
+  }
+}
+annotate view ZC_USER_DATA_FILE with
+{
+  @UI.facet: [ {
+    id: 'idIdentification', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'dataFile', 
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10 
+  } ]
+  Ebeln;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20 
+  } ]
+  Ebelp;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30 
+  } ]
+  Entrysheet;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 40 
+  } ]
+  ExtNumber;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 50 
+  } ]
+  Begdate;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  Enddate;
+  
+  @UI.lineItem: [ {
+    position: 70 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 70 
+  } ]
+  Quantity;
+  
+  @UI.lineItem: [ {
+    position: 80 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 80 
+  } ]
+  BaseUom;
+  
+  @UI.lineItem: [ {
+    position: 90 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 90 
+  } ]
+  FinEntry;
+  
+  @UI.lineItem: [ {
+    position: 100 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 100 
+  } ]
+  Error;
+  
+  @UI.lineItem: [ {
+    position: 110 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 110 
+  } ]
+  ErrorMessage;
+  
+  @UI.hidden: true
+  UUID;
+  
+  @UI.lineItem: [ {
+    position: 120 , 
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 120 
+  } ]
+  EndUser;
+  
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

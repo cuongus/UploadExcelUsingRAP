@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition'
+define service ZUI_C_SES_PARENT {
+  expose zc_ses_parent;
+  expose zc_ses_excel;
+}

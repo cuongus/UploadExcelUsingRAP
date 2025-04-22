@@ -1,0 +1,116 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Preview',
+    typeNamePlural: 'Preview Data'
+  }
+}
+annotate entity ZC_UUID_DATA_FILE with
+{
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10
+  } ]
+  @UI.hidden: true
+  Uuid;
+  @UI.lineItem: [ {
+  position: 20 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20
+  } ]
+  @UI.hidden: true
+  UploadUuid;
+  @UI.lineItem: [ {
+  position: 30 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 30
+  } ]
+  EndUser;
+  @UI.lineItem: [ {
+  position: 40 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 40
+  } ]
+  ZCount;
+  @UI.lineItem: [ {
+  position: 50 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 50
+  } ]
+  Ebeln;
+  @UI.lineItem: [ {
+  position: 60 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 60
+  } ]
+  Ebelp;
+  @UI.lineItem: [ {
+  position: 70 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 70
+  } ]
+  Entrysheet;
+  @UI.lineItem: [ {
+  position: 80 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 80
+  } ]
+  ExtNumber;
+  @UI.lineItem: [ {
+  position: 90 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 90
+  } ]
+  Begdate;
+  @UI.lineItem: [ {
+  position: 100 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 100
+  } ]
+  Enddate;
+  @UI.lineItem: [ {
+  position: 110 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 110
+  } ]
+  Quantity;
+  @UI.lineItem: [ {
+  position: 120 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 120
+  } ]
+  BaseUom;
+  @UI.lineItem: [ {
+  position: 130 ,
+  importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 130
+  } ]
+  FinEntry;
+}

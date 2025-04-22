@@ -1,0 +1,143 @@
+managed implementation in class ZCL_R_USER_UPLOAD_FILE unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_USER_UPLOAD alias File
+persistent table zuser_upload
+draft table zuser_upload_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+early numbering
+
+{
+
+  field ( readonly )
+  UUID,
+  EndUser,
+  ZCount,
+  Status,
+  CreatedAt,
+  CreatedBy,
+  LastChangedAt,
+  LocalLastChangedAt,
+  LocalLastChangedBy;
+
+
+  create;
+  update ( features : instance );
+  delete ( features : instance );
+  association _dataFile { create; with draft; }
+  association _previewData { create; with draft; }
+
+  determination getExcelData on save { field Filename; }
+  determination setStatusToOpen on modify { create; }
+  // action ( features : instance, authorization : update ) Preview result [1] $self;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zuser_upload
+    {
+      UUID               = uuid;
+      EndUser            = end_user;
+      ZCount             = cnt;
+      Status             = status;
+      Attachment         = attachment;
+      Mimetype           = mimetype;
+      Filename           = filename;
+      CreatedBy          = created_by;
+      CreatedAt          = created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZI_USR_DATA_FILE alias dataFile
+implementation in class ZCL_I_DATA_FILE unique
+persistent table zuser_data_file
+draft table zdata_file_d
+etag master LocalLastChangedAt
+lock dependent by _File
+authorization dependent by _File
+{
+
+
+  update;
+  delete;
+
+  association _File { with draft; }
+  field ( readonly ) EndUser, Uuid, Ebeln, Ebelp, ZCount;
+
+  mapping for zuser_data_file
+    {
+      Ebeln              = ebeln;
+      Ebelp              = ebelp;
+      Entrysheet         = entrysheet;
+      ExtNumber          = ext_number;
+      Begdate            = begdate;
+      Enddate            = enddate;
+      Quantity           = quantity;
+      BaseUom            = base_uom;
+      FinEntry           = fin_entry;
+      Error              = error;
+      ErrorMessage       = error_message;
+      Uuid               = uuid;
+      EndUser            = end_user;
+      FileName           = filename;
+      ZCount             = zcount;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LastChangedAt      = last_changed_at;
+    }
+
+}
+
+
+define behavior for ZI_UUID_DATA_FILE alias previewData
+implementation in class ZCL_UUID_DATA_FILE unique
+persistent table zuuid_data_file
+draft table zuuid_dfile_d
+etag master LocalLastChangedAt
+lock dependent by _File
+authorization dependent by _File
+{
+
+
+  update;
+  delete;
+
+  association _File { with draft; }
+  field ( readonly ) UploadUuid, Ebeln, Ebelp, EndUser, ZCount;
+  field ( numbering : managed, readonly ) Uuid;
+
+  mapping for zuuid_data_file
+    {
+      Uuid               = uuid;
+      UploadUuid         = upload_uuid;
+      Ebeln              = ebeln;
+      Ebelp              = ebelp;
+      Entrysheet         = entrysheet;
+      ExtNumber          = ext_number;
+      Begdate            = begdate;
+      Enddate            = enddate;
+      Quantity           = quantity;
+      BaseUom            = base_uom;
+      FinEntry           = fin_entry;
+      Error              = error;
+      ErrorMessage       = error_message;
+      EndUser            = end_user;
+      ZCount             = cnt;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LastChangedAt      = last_changed_at;
+    }
+
+}

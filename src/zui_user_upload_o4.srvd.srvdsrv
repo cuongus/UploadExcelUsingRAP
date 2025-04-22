@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service definition for ZC_USER_UPLOAD'
+@ObjectModel.leadingEntity.name: 'ZC_USER_UPLOAD'
+define service ZUI_USER_UPLOAD_O4 {
+  expose ZC_USER_UPLOAD    as File;
+  expose ZC_USER_DATA_FILE as dataFile;
+  expose ZC_UUID_DATA_FILE as previewData;
+}
